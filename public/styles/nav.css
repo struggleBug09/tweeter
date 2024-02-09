@@ -37,12 +37,12 @@ nav span {
   font-weight: bold;
 }
 
-/* .center {
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-} */
+}
 /* .container {
-  padding-top:1.5em;
-} */
+  padding-bottom:3em;
+}

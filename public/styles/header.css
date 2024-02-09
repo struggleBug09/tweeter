@@ -1,4 +1,4 @@
-header {
+.main-header {
   height: 520px;
   width: 100%;
   display: flex;
@@ -9,14 +9,14 @@ header {
   background-image: url('/images/brushed-alum.png');
 }
 
-header div {
+.main-header div {
   margin-bottom: -20px; 
 }
 
-header img {
+.main-header img {
   width: 200px;
 }
 
-header h2 {
+.main-header h2 {
   margin: 0; 
 }

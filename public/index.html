@@ -51,7 +51,7 @@
       </div>
       <div>
   </nav>
-  <header>
+  <header class="main-header">
     <div>
         <img src="/images/profile-hex.png"> 
     </div>
@@ -64,9 +64,8 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
       <form>
-        <label for="tweet-text">What are you humming about?</label>
+        <label for="tweet-text"><b>What are you humming about?</b></label>
         <textarea name="text" id="tweet-text"></textarea>
         <div class="button-container">
           <button type="submit">Tweet</button>
@@ -74,7 +73,17 @@
         </div>
       </form>
     </section>
-    
+    <section class="tweet-container">
+      <article class="tweet">
+        <header>
+         <img class="avatar" src="/images/person1.png">    
+         <p class="name">Newton</p>
+         <p class="handle">@SirIsaac</p>
+        </header>
+        <p class="tweet-text">If I have seen further it is by standing on the shoulders of giants</p>
+        <footer>This is the footer</footer>
+      </article>
+  </section>
   </main>
 </body>
 
