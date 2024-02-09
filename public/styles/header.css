@@ -9,14 +9,7 @@
   background-image: url('/images/brushed-alum.png');
 }
 
-.main-header div {
-  margin-bottom: -20px; 
-}
-
 .main-header img {
+  padding-top: 100px;
   width: 200px;
-}
-
-.main-header h2 {
-  margin: 0; 
 }

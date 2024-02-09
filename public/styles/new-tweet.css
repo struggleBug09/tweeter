@@ -68,6 +68,7 @@ div.button-container {
   order: 3;
   margin-left: auto;
   margin-right: 15px;
+  color: rgb(212, 212, 212);
 }
 
 .tweet-container {
@@ -76,6 +77,29 @@ div.button-container {
 }
 
 .tweet-text {
-  margin-left: 15px;
+  margin-left: 10px;
+  margin-right: 15px;
+  padding-bottom:50px;
+  border-bottom: 4px solid #545149;
+  padding-left: 20px;
 }
 
+#time {
+  padding-left: 20px;
+  font-size: 0.7em;
+
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; Optional: Centers items vertically */
+}
+
+#favicon {
+  margin-right: 30px;
+}
+
+#favicon i {
+  margin-right: 10px;
+}
