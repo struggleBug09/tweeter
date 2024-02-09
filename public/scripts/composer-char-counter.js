@@ -10,11 +10,20 @@ $(document).ready(function() {
   });
 });
 
-$(document).read(function() {
-  $('.tweet-container').on('hover', function() {
-    //Checks if user is hovering over tweet-container
-    if (isHover) {
-      //Add shadow box thing
+$(document).ready(function() {
+  $('#favicon i').hover(function() {
+      $(this).addClass('hovered');
+    },
+    function() {
+      $(this).removeClass('hovered');
     }
-  })
+  );
+});
+
+$(document).ready(function() {
+  $('.tweet-container').hover(function() {
+    $(this).css('box-shadow', '12px 12px 1px 0px #c5ccf0');
+  }, function() {
+    $(this).css('box-shadow', 'none');
+  });
 });

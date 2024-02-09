@@ -30,14 +30,17 @@ button {
 
 .button-container {
   display: flex; 
-  justify-content: space-between; 
+  justify-content: space-between;
+
 }
 
 .counter {
   font-family: 'Bungee', sans-serif; 
   text-align: right; 
 }
+
 /* Code below is for the tweets section */
+
 article.tweet header {
   font-family: 'Source Sans 3', sans-serif;
   background-color: #f4f1ec;
@@ -73,8 +76,8 @@ div.button-container {
 
 .tweet-container {
   border: 4px solid #545149;
-
 }
+
 
 .tweet-text {
   margin-left: 10px;
@@ -93,7 +96,7 @@ div.button-container {
 footer {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; Optional: Centers items vertically */
+  padding-bottom: 1em;
 }
 
 #favicon {
@@ -102,4 +105,8 @@ footer {
 
 #favicon i {
   margin-right: 10px;
+}
+
+#favicon i.hovered {
+  color: #ffd500; 
 }
