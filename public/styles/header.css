@@ -1,0 +1,22 @@
+header {
+  height: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  background-color: #ffd500; 
+  background-image: url('/images/brushed-alum.png');
+}
+
+header div {
+  margin-bottom: -20px; 
+}
+
+header img {
+  width: 200px;
+}
+
+header h2 {
+  margin: 0; 
+}

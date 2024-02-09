@@ -1,0 +1,48 @@
+body {
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+nav .logo {
+  font-family: 'Bungee', sans-serif;
+}
+
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+}
+
+nav span {
+  font-family: 'Bungee', sans-serif;
+  font-size: 2.2em;
+  line-height: 1;
+  padding-left: 1.5em;
+
+}
+
+#second-span {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  padding-right: 1.5em;
+}
+
+#second-span strong {
+  font-weight: bold;
+}
+
+/* .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+} */
+/* .container {
+  padding-top:1.5em;
+} */

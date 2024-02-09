@@ -1,0 +1,29 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; 
+}
+
+label {
+  margin-bottom: 1em; 
+}
+
+textarea {
+  border: none; 
+  border-bottom: 1px solid black; 
+  width: 100%; 
+}
+
+button {
+  font-family: 'Bungee', sans-serif; 
+}
+
+.button-container {
+  display: flex; 
+  justify-content: space-between; 
+}
+
+.counter {
+  font-family: 'Bungee', sans-serif; 
+  text-align: right; 
+}
