@@ -33,5 +33,11 @@ const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 app.use("/tweets", tweetsRoutes);
 
 app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
+  console.log("Tweeter app listening on port " + PORT);
+});
+
+app.post("/submit", function(req, res) {
+  const formData = req.body; // Access form data from request body
+  console.log(formData); // Log the form data to console
+  res.send("Form submitted successfully!"); // Send response to the client
 });

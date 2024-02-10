@@ -54,7 +54,7 @@ div.button-container {
   padding-top:0.5em;
 }
 
-.avatar {
+.avatars {
   height: 70px;
   width: 70px;
   margin-right: 15px;
@@ -72,22 +72,25 @@ div.button-container {
   margin-left: auto;
   margin-right: 15px;
   color: rgb(212, 212, 212);
+  font-weight: bold;
 }
 
-.tweet-container {
+.tweet {
   border: 4px solid #545149;
+  margin-bottom: 20px;
 }
 
 
-.tweet-text {
+.text {
   margin-left: 10px;
   margin-right: 15px;
   padding-bottom:50px;
   border-bottom: 4px solid #545149;
   padding-left: 20px;
+  font-weight: bold;
 }
 
-#time {
+.timestamp {
   padding-left: 20px;
   font-size: 0.7em;
 
@@ -99,14 +102,14 @@ footer {
   padding-bottom: 1em;
 }
 
-#favicon {
+.favicon {
   margin-right: 30px;
 }
 
-#favicon i {
+.favicon i {
   margin-right: 10px;
 }
 
-#favicon i.hovered {
+.favicon i.hovered {
   color: #ffd500; 
 }
