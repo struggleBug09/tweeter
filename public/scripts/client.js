@@ -19,7 +19,7 @@ function renderTweets(tweetArray) {
   });
 }
 
-const timeline = [];
+let timeline = [];
 
 function createTweetElement(tweetData) {
   // Initialize tweet as articles
@@ -63,16 +63,11 @@ $(document).ready(function () {
     $.ajax({
       url: "/tweets", type: "GET",
       success: function (response) {
-        console.log(timeline.length);
         if (timeline.length === 0) {
-          console.log('first timeline', timeline);
-          console.log(response);
-          console.log(timeline.length)
           timeline = response;
           renderTweets(response);
         } else {
           renderTweets(timeline)
-          console.log('THIS PART SHOULD NOT LOG TO CONSOLE')
         }
 
       },
@@ -94,7 +89,8 @@ $(document).ready(function () {
         const newTweetText = res.text;
         mainUser.content.text = newTweetText;
         timeline.unshift(mainUser);
-        // console.log('timeline after unshift', timeline)
+        console.log('timeline after unshift', timeline)
+        $(".tweets-container").empty();
         loadTweets();
       },
       error: function (xhr, status, error) {
