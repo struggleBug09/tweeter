@@ -37,7 +37,7 @@ app.listen(PORT, () => {
 });
 
 app.post("/submit", function(req, res) {
-  const formData = req.body; // Access form data from request body
-  console.log(formData); // Log the form data to console
-  res.send("Form submitted successfully!"); // Send response to the client
+  const formData = req.body; 
+  console.log("Received tweet data:", formData);
+  res.json(formData);
 });

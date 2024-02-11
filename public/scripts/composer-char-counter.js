@@ -10,20 +10,21 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() {
-  $('.favicon i').hover(function() {
-      $(this).addClass('hovered');
-    },
-    function() {
-      $(this).removeClass('hovered');
-    }
-  );
-});
+// $(document).ready(function() {
+//   $('.favicon i').hover(function() {
+//       $(this).addClass('hovered');
+//       console.log("Being hovered right now");
+//     },
+//     function() {
+//       $(this).removeClass('hovered');
+//     }
+//   );
+// });
 
-$(document).ready(function() {
-  $('.tweet').hover(function() {
-    $(this).css('box-shadow', '12px 12px 1px 0px #c5ccf0');
-  }, function() {
-    $(this).css('box-shadow', 'none');
-  });
-});
+// $(document).ready(function() {
+//   $('.tweet').hover(function() {
+//     $(this).css('box-shadow', '12px 12px 1px 0px #c5ccf0');
+//   }, function() {
+//     $(this).css('box-shadow', 'none');
+//   });
+// });

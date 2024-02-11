@@ -1,26 +1,16 @@
-const data = [
-  // {
-  //   "user": {
-  //     "name": "Newton",
-  //     "avatars": "https://i.imgur.com/73hZDYK.png"
-  //     ,
-  //     "handle": "@SirIsaac"
-  //   },
-  //   "content": {
-  //     "text": "If I have seen further it is by standing on the shoulders of giants"
-  //   },
-  //   "created_at": 1461116232227
-  // },
-  // {
-  //   "user": {
-  //     "name": "Descartes",
-  //     "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //     "handle": "@rd" },
-  //   "content": {
-  //     "text": "Je pense , donc je suis"
-  //   },
-  //   "created_at": 1461113959088
-  // }
+const mainUser = [
+  {
+    "user": {
+      "name": "Michael Scott",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
+      "handle": "@office_guy14"
+    },
+    "content": {
+      "text": ""
+    },
+    "created_at": 1461116232227
+  }
 ]
 function renderTweets(tweetArray) {
   tweetArray.forEach(tweet => {
@@ -87,11 +77,32 @@ $(document).ready(function() {
 
     $.ajax({ url: "/submit", type: "POST",  data: submitData,
       success: function(res) {
-        console.log("Form submit works");
+        const newTweetText = res.text; // Assuming res is { text: 'new tweet' }
+        mainUser[0].content.text = newTweetText; // Update the text property
+        renderTweets(mainUser); // Render the updated tweets
       },
       error: function(xhr, status, error) {
         console.error("Error", error);
       }
     });
+  });
+});
+
+$(document).ready(function() {
+  $('.favicon i').hover(function() {
+      $(this).addClass('hovered');
+      console.log("Being hovered right now");
+    },
+    function() {
+      $(this).removeClass('hovered');
+    }
+  );
+});
+
+$(document).ready(function() {
+  $('.tweet').hover(function() {
+    $(this).css('box-shadow', '12px 12px 1px 0px #c5ccf0');
+  }, function() {
+    $(this).css('box-shadow', 'none');
   });
 });
