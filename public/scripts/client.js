@@ -3,9 +3,9 @@ const mainUser =
 {
   "user": {
     "name": "Michael Scott",
-    "avatars": "https://i.imgur.com/73hZDYK.png"
+    "avatars": "/images/man.png"
     ,
-    "handle": "@office_guy14"
+    "handle": "@Not_Carell"
   },
   "content": {
     "text": ""
