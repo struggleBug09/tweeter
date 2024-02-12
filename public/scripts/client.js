@@ -112,9 +112,11 @@ $(document).ready(function () {
     if (tweetText.length > 140 || tweetText.length === 0) {
       // Show the appropriate error message
       if (tweetText.length > 140) {
-        $('#too-long').show();
+        $('.error-message').hide();
+        $('#too-long').slideDown();
       } else {
-        $('#null-tweet').show();
+        $('.error-message').hide();
+        $('#null-tweet').slideDown();
       }
     } else {
       submitTweet(submitData);
