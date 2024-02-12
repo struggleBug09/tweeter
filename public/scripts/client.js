@@ -91,6 +91,7 @@ $(document).ready(function () {
         newTweet.content.text = newTweetText;
         timeline.unshift(newTweet);
         $(".tweets-container").empty();
+        $("#tweet-text").val('');
         loadTweets();
         // Hide any error messages after successful submission
         $('.error-message').hide();
