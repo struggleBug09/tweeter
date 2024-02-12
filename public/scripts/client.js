@@ -1,3 +1,4 @@
+//mainUser is the 'user' of the tweet app account
 const mainUser =
 {
   "user": {
@@ -32,7 +33,7 @@ function createTweetElement(tweetData) {
   const $name = $("<span>").addClass("name").text(tweetData.user.name);
   const $handle = $("<span>").addClass("handle").text(tweetData.user.handle);
 
-  // Initializes CONTENT for tweets
+  // Initializes CONTENT/TEXT for tweets
   const $content = $("<div>").addClass("tweet-content");
   const $text = $("<p>").addClass("text").text(tweetData.content.text);
 
@@ -52,7 +53,7 @@ function createTweetElement(tweetData) {
   $content.append($text);
   $footer.append($timestamp, $favicon);
 
-  //Appends header, content and footer to tweet so as can return it
+  //Appends header, content and footer to tweet so we can return it
   $tweet.append($header, $content, $footer);
 
   return $tweet;
@@ -60,6 +61,7 @@ function createTweetElement(tweetData) {
 
 
 $(document).ready(function () {
+  //loads tweets upon ready
   function loadTweets() {
     $.ajax({
       url: "/tweets",
@@ -80,6 +82,7 @@ $(document).ready(function () {
     });
   }
   
+  /*Handles new tweets to be loaded to the timeline and removes -if showing- any err msg upon new submission attempt */
   function submitTweet(data) {
     $.ajax({
       url: "/submit",
@@ -87,13 +90,13 @@ $(document).ready(function () {
       data: data,
       success: function (res) {
         const newTweetText = res.text;
+        //Stringify + parsing mainUser to create a dupe in memory (prevents reference bug updating old tweets)*/
         let newTweet = JSON.parse(JSON.stringify(mainUser));
         newTweet.content.text = newTweetText;
         timeline.unshift(newTweet);
         $(".tweets-container").empty();
         $("#tweet-text").val('');
         loadTweets();
-        // Hide any error messages after successful submission
         $('.error-message').hide();
       },
       error: function (xhr, status, error) {
@@ -103,15 +106,15 @@ $(document).ready(function () {
   }
 
   loadTweets();
-
+   
+  //Handles err msg logic and animation
   $("form").submit(function (event) {
     event.preventDefault();
     const submitData = $(this).serialize();
     const tweetText = $(this).find('#tweet-text').val().trim();
 
-    // Check for invalid tweet (null or too long)
     if (tweetText.length > 140 || tweetText.length === 0) {
-      // Show the appropriate error message
+      // Shows appropriate err msg with some animation
       if (tweetText.length > 140) {
         $('.error-message').hide();
         $('#too-long').slideDown();
@@ -125,7 +128,7 @@ $(document).ready(function () {
   });
 });
 
-
+//Adds hovered class when hovering to change favicon color
 $(document).ready(function () {
   $(document).on('mouseenter', '.favicon i', function () {
     $(this).addClass('hovered');
@@ -135,6 +138,7 @@ $(document).ready(function () {
   });
 });
 
+//Adds shadow when hovering over tweets
 $(document).ready(function () {
   $(document).on('mouseenter', '.tweet', function () {
     $(this).css('box-shadow', '12px 12px 1px 0px #c5ccf0');

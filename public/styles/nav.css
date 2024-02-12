@@ -45,8 +45,16 @@ nav span {
   width: 100%;
 }
 
-/*Media break for laptop css */
-@media only screen and (min-width: 768px) {
+/*Media break for laptop css, tablet size is default */
+@media only screen and (max-width: 728px) {
+  nav {
+    background-color: #ffd500;
+    background-image: url('/images/brushed-alum.png');
+  }
+  
+}
+
+@media only screen and (min-width: 1024px) {
   nav {
     background-color: #4056A1;
     background-image: none;
