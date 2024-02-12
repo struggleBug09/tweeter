@@ -8,7 +8,7 @@
     "content": {
       "text": "Lorem Ipsum is one heck of a writer!"
     },
-    "created_at": 1707347302790
+    "created_at": 1707348143012
   },
   {
     "user": {
@@ -17,9 +17,9 @@
       "handle": "@SirIsaac"
     },
     "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
+      "text": "Whoever invented calculus must be a smart, fine man."
     },
-    "created_at": 1707433702790
+    "created_at": 1707434543012
   },
   {
     "user": {
@@ -30,7 +30,7 @@
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1707520102790
+    "created_at": 1707520943012
   },
   {
     "user": {
@@ -39,19 +39,19 @@
       "handle": "@rd"
     },
     "content": {
-      "text": "trouple"
+      "text": "I think; therefore I am. ..."
     },
-    "created_at": 1707606502790
+    "created_at": 1707607343012
   },
   {
     "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@SirIsaac"
     },
     "content": {
-      "text": "duple"
+      "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1707692902790
+    "created_at": 1707693743012
   }
 ]
