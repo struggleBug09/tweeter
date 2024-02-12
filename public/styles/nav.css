@@ -67,5 +67,16 @@ nav span {
     background-color: #4056A1;
     background-image: none;
   }
+  #timeline {
+    width: 50%;  
+  }
+  .pc-top {
+    display:flex;
+    padding-top: 200px;
+    padding-left: 120px;
+    padding-right: 20px;
+    justify-content: space-between;
+
+  }
   
 }
