@@ -62,55 +62,63 @@ function createTweetElement(tweetData) {
 $(document).ready(function () {
   function loadTweets() {
     $.ajax({
-      url: "/tweets", type: "GET",
+      url: "/tweets",
+      type: "GET",
       success: function (response) {
         if (timeline.length === 0) {
-          //Triggers on first load. Then updates timeline 
+          // Triggers on first load. Then updates timeline 
           timeline = response;
           renderTweets(response);
         } else {
-          //Loads timeline. Response not necessary to pass
-          renderTweets(timeline)
+          // Loads timeline. Response not necessary to pass
+          renderTweets(timeline);
         }
-
       },
       error: function (xhr, status, error) {
         console.error("Error", error);
       }
     });
   }
-  loadTweets();
-
-  $("form").submit(function (event) {
-    event.preventDefault();
-
-    const tweetText = $("#tweet-text").val(); //Initialize submission so we can check validity of user input
-
-    if (tweetText.trim().length === 0) {
-      alert("Please enter a valid tweet");
-      return; 
-    }
-    if (tweetText.trim().length > 140) {
-      alert("Too many characters!");
-      return; 
-    }
-    const submitData = $(this).serialize();
-
+  
+  function submitTweet(data) {
     $.ajax({
-      url: "/submit", type: "POST", data: submitData,
+      url: "/submit",
+      type: "POST",
+      data: data,
       success: function (res) {
-        //newTweet is initiallized via parsing to create a new array in memory so new mainUser tweets doesn't update previous mainUser tweets
         const newTweetText = res.text;
         let newTweet = JSON.parse(JSON.stringify(mainUser));
         newTweet.content.text = newTweetText;
         timeline.unshift(newTweet);
         $(".tweets-container").empty();
         loadTweets();
+        // Hide any error messages after successful submission
+        $('.error-message').hide();
       },
       error: function (xhr, status, error) {
         console.error("Error", error);
       }
     });
+  }
+
+  loadTweets();
+
+  $("form").submit(function (event) {
+    event.preventDefault();
+    const submitData = $(this).serialize();
+    const tweetText = $(this).find('#tweet-text').val().trim();
+
+    // Check for invalid tweet (null or too long)
+    if (tweetText.length > 140 || tweetText.length === 0) {
+      // Show the appropriate error message
+      if (tweetText.length > 140) {
+        $('#too-long').show();
+      } else {
+        $('#null-tweet').show();
+      }
+    } else {
+      submitTweet(submitData);
+    }
   });
 });
 

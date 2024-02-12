@@ -115,7 +115,7 @@ footer {
 }
 
 .error-message {
-  /* display: none; */
+  display: none;
   border-radius: 2px;
   border: 4px solid rgba(227, 29, 29, 0.784);
   padding: 0.5em; 
