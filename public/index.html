@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <style>
-   
     main {
       width: 90%; 
       margin: 0 auto;
@@ -67,6 +66,8 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <div class="error-message" id="too-long"><i class="fa-regular fa-hand"></i>Tweet police here. Keep tweets at max 140 char. Non-negotiable.</div>
+      <div class="error-message" id="null-tweet"><i class="fa-regular fa-hand"></i>Creativity tip! Press a key other than 'spacebar' before you tweet.</div>
       <form>
         <label for="tweet-text"><b>What are you humming about?</b></label>
         <textarea name="text" id="tweet-text"></textarea>

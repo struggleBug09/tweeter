@@ -19,6 +19,7 @@ function renderTweets(tweetArray) {
   });
 }
 
+//Timeline array will keep track of tweets that are loaded and submitted
 let timeline = [];
 
 function createTweetElement(tweetData) {
@@ -64,9 +65,11 @@ $(document).ready(function () {
       url: "/tweets", type: "GET",
       success: function (response) {
         if (timeline.length === 0) {
+          //Triggers on first load. Then updates timeline 
           timeline = response;
           renderTweets(response);
         } else {
+          //Loads timeline. Response not necessary to pass
           renderTweets(timeline)
         }
 
