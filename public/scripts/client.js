@@ -86,10 +86,11 @@ $(document).ready(function () {
     $.ajax({
       url: "/submit", type: "POST", data: submitData,
       success: function (res) {
+        //newTweet is initiallized via parsing to create a new array in memory so new mainUser tweets doesn't update previous mainUser tweets
         const newTweetText = res.text;
-        mainUser.content.text = newTweetText;
-        timeline.unshift(mainUser);
-        console.log('timeline after unshift', timeline)
+        let newTweet = JSON.parse(JSON.stringify(mainUser));
+        newTweet.content.text = newTweetText;
+        timeline.unshift(newTweet);
         $(".tweets-container").empty();
         loadTweets();
       },
@@ -100,21 +101,20 @@ $(document).ready(function () {
   });
 });
 
+
 $(document).ready(function () {
-  $('.favicon i').hover(function () {
+  $(document).on('mouseenter', '.favicon i', function () {
     $(this).addClass('hovered');
     console.log("Being hovered right now");
-  },
-    function () {
-      $(this).removeClass('hovered');
-    }
-  );
+  }).on('mouseleave', '.favicon i', function () {
+    $(this).removeClass('hovered');
+  });
 });
 
 $(document).ready(function () {
-  $('.tweet').hover(function () {
+  $(document).on('mouseenter', '.tweet', function () {
     $(this).css('box-shadow', '12px 12px 1px 0px #c5ccf0');
-  }, function () {
+  }).on('mouseleave', '.tweet', function () {
     $(this).css('box-shadow', 'none');
   });
 });
