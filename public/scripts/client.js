@@ -13,6 +13,7 @@ const mainUser =
   "created_at": 1461116232227
 }
 
+
 function renderTweets(tweetArray) {
   tweetArray.forEach(tweet => {
     const $tweet = createTweetElement(tweet);
@@ -22,6 +23,7 @@ function renderTweets(tweetArray) {
 
 //Timeline array will keep track of tweets that are loaded and submitted
 let timeline = [];
+
 
 function createTweetElement(tweetData) {
   // Initialize tweet as articles
@@ -39,7 +41,7 @@ function createTweetElement(tweetData) {
 
   // Initializes FOOTER and all its children/nested children
   const $footer = $("<footer>").addClass("tweet-footer");
-  const $timestamp = $("<span>").addClass("timestamp").text("10 days ago");
+  const $timestamp = $("<span>").addClass("timestamp").text(timeago.format(new Date(tweetData.created_at)));
   const $favicon = $("<div>").addClass("favicon");
   const $flagIcon = $("<i>").addClass("fa-solid fa-flag");
   const $retweetIcon = $("<i>").addClass("fa-solid fa-retweet");
@@ -58,6 +60,7 @@ function createTweetElement(tweetData) {
 
   return $tweet;
 }
+
 
 
 $(document).ready(function () {
@@ -92,6 +95,9 @@ $(document).ready(function () {
         const newTweetText = res.text;
         //Stringify + parsing mainUser to create a dupe in memory (prevents reference bug updating old tweets)*/
         let newTweet = JSON.parse(JSON.stringify(mainUser));
+        const now = new Date();
+        const formattedDate = now.toLocaleString();
+        newTweet.created_at = formattedDate;
         newTweet.content.text = newTweetText;
         timeline.unshift(newTweet);
         $(".tweets-container").empty();
