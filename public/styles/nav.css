@@ -24,6 +24,7 @@ nav span {
   font-size: 2.2em;
   line-height: 1;
   padding-left: 1.5em;
+  transition: font-size 0.3s ease-in-out, padding-left 0.3s ease-in-out;
 
 }
 
@@ -32,6 +33,7 @@ nav span {
   font-size: 1.1em;
   font-weight: 300;
   padding-right: 1.5em;
+  transition: font-size 0.3s ease-in-out, padding-left 0.3s ease-in-out;
 }
 
 #second-span strong {
@@ -45,13 +47,19 @@ nav span {
   width: 100%;
 }
 
-/*Media break for laptop css, tablet size is default */
-@media only screen and (max-width: 728px) {
+@media only screen and (max-width: 768px) {
   nav {
     background-color: #ffd500;
     background-image: url('/images/brushed-alum.png');
   }
-  
+  nav span {
+    font-size: 1.4em;
+    padding-left: 2.4em;
+  }
+  #second-span {
+    font-size: 0.77em;
+    padding-right: 2.2em;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
