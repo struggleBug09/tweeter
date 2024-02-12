@@ -81,6 +81,16 @@ $(document).ready(function () {
   $("form").submit(function (event) {
     event.preventDefault();
 
+    const tweetText = $("#tweet-text").val(); //Initialize submission so we can check validity of user input
+
+    if (tweetText.trim().length === 0) {
+      alert("Please enter a valid tweet");
+      return; 
+    }
+    if (tweetText.trim().length > 140) {
+      alert("Too many characters!");
+      return; 
+    }
     const submitData = $(this).serialize();
 
     $.ajax({
