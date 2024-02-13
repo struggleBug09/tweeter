@@ -15,7 +15,8 @@ const mainUser =
 
 
 function renderTweets(tweetArray) {
-  tweetArray.forEach(tweet => {
+  const reverseArray = tweetArray.slice();
+  reverseArray.forEach(tweet => {
     const $tweet = createTweetElement(tweet);
     $(".tweets-container").append($tweet);
   });
@@ -73,6 +74,7 @@ $(document).ready(function () {
         if (timeline.length === 0) {
           // Triggers on first load. Then updates timeline 
           timeline = response;
+          timeline.reverse();
           renderTweets(response);
         } else {
           // Loads timeline. Response not necessary to pass

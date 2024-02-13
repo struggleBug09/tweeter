@@ -132,4 +132,6 @@ footer {
   padding-right: 10px;
 }
 
-
+textarea:focus {
+  outline: none;
+}
