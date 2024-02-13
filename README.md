@@ -16,4 +16,8 @@ Makes use of AJAX, jQuery, HTML5 and CSS3. This project introduces this stack to
 - Node 5.10.x or above
 
 ## Screenshots
-!["Screen shots of x"]
+!["Screenshot of too long tweet error message"](https://github.com/struggleBug09/tweeter/blob/master/docs/error-message.png)
+!["Screenshot of box shadow and icon hover"](https://github.com/struggleBug09/tweeter/blob/master/docs/hover-effects.png)
+!["Screenshot of mobile view of nav"](https://github.com/struggleBug09/tweeter/blob/master/docs/mobile-nav.png)
+!["Screenshot of tablet view of nav"](https://github.com/struggleBug09/tweeter/blob/master/docs/tablet-nav.png)
+!["Screenshot of desktop view of nav"]
