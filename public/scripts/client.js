@@ -124,6 +124,7 @@ function submitAction() {
         $('#null-tweet').slideDown();
       }
     } else {
+      $('.counter').text('140').css('color', ''); 
       submitTweet(submitData);
     }
   });
