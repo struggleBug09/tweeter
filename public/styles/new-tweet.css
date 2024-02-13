@@ -28,6 +28,16 @@ button {
   width: 100px;
 }
 
+button:hover {
+  background-color:#1133a0;
+}
+
+button:active {
+  background-color: #5976e1;
+  transform: translateY(2px);
+}
+
+
 .button-container {
   display: flex; 
   justify-content: space-between;
