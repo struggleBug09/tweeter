@@ -1,0 +1,94 @@
+article.tweet header {
+  font-family: 'Source Sans 3', sans-serif;
+  background-color: #f4f1ec;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+div.button-container {
+  padding-top:0.5em;
+}
+
+.avatars {
+  height: 70px;
+  width: 70px;
+  margin-right: 15px;
+  margin-left:15px;
+  order: 1;
+}
+
+.name {
+  order: 2;
+  margin-right: auto;
+}
+
+.handle {
+  order: 3;
+  margin-left: auto;
+  margin-right: 15px;
+  color: rgb(212, 212, 212);
+  font-weight: bold;
+}
+
+.tweet {
+  border: 4px solid #545149;
+  margin-bottom: 20px;
+}
+
+
+.text {
+  margin-left: 10px;
+  margin-right: 15px;
+  padding-bottom:50px;
+  border-bottom: 4px solid #545149;
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+.timestamp {
+  padding-left: 20px;
+  font-size: 0.7em;
+
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1em;
+}
+
+.favicon {
+  margin-right: 30px;
+}
+
+.favicon i {
+  margin-right: 10px;
+}
+
+.favicon i.hovered {
+  color: #ffd500; 
+}
+
+.error-message {
+  display: none;
+  border-radius: 2px;
+  border: 4px solid rgba(227, 29, 29, 0.784);
+  padding: 0.5em; 
+  text-align: center; 
+  margin-bottom: 1em; 
+  color: rgb(227, 29, 29, 0.784);
+  font-weight: bold;
+}
+
+.fa-regular.fa-hand {
+  padding-right: 20px;
+}
+.fa-light.fa-palette {
+  padding-right: 10px;
+}
+
+textarea:focus {
+  outline: none;
+}
