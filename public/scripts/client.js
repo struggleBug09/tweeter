@@ -13,18 +13,8 @@ const mainUser =
   "created_at": 1461116232227
 }
 
-
-function renderTweets(tweetArray) {
-  const reverseArray = tweetArray.slice();
-  reverseArray.forEach(tweet => {
-    const $tweet = createTweetElement(tweet);
-    $(".tweets-container").append($tweet);
-  });
-}
-
 //Timeline array will keep track of tweets that are loaded and submitted
 let timeline = [];
-
 
 function createTweetElement(tweetData) {
   // Initialize tweet as articles
@@ -62,60 +52,63 @@ function createTweetElement(tweetData) {
   return $tweet;
 }
 
+//Renders tweets passed by loadTweets to #tweet-container
+function renderTweets(tweetArray) {
+  const reverseArray = tweetArray.slice();
+  reverseArray.forEach(tweet => {
+    const $tweet = createTweetElement(tweet);
+    $(".tweets-container").append($tweet);
+  });
+}
 
-
-$(document).ready(function () {
-  //loads tweets upon ready
-  function loadTweets() {
-    $.ajax({
-      url: "/tweets",
-      type: "GET",
-      success: function (response) {
-        if (timeline.length === 0) {
-          // Triggers on first load. Then updates timeline 
-          timeline = response;
-          timeline.reverse();
-          renderTweets(response);
-        } else {
-          // Loads timeline. Response not necessary to pass
-          renderTweets(timeline);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.error("Error", error);
+//Initially gets tweets from initial-tweets.json via AJAX. Passes timeline array to renderTweets thereafter
+function loadTweets() {
+  $.ajax({
+    url: "/tweets",
+    type: "GET",
+    success: function (response) {
+      if (timeline.length === 0) {
+        // Triggers on first load. Then updates timeline 
+        timeline = response;
+        timeline.reverse();
+        renderTweets(response);
+      } else {
+        // Loads timeline. Response not necessary to pass
+        renderTweets(timeline);
       }
-    });
-  }
-  
-  /*Handles new tweets to be loaded to the timeline and removes -if showing- any err msg upon new submission attempt */
-  function submitTweet(data) {
-    $.ajax({
-      url: "/submit",
-      type: "POST",
-      data: data,
-      success: function (res) {
-        const newTweetText = res.text;
-        //Stringify + parsing mainUser to create a dupe in memory (prevents reference bug updating old tweets)*/
-        let newTweet = JSON.parse(JSON.stringify(mainUser));
-        const now = new Date();
-        const formattedDate = now.toLocaleString();
-        newTweet.created_at = formattedDate;
-        newTweet.content.text = newTweetText;
-        timeline.unshift(newTweet);
-        $(".tweets-container").empty();
-        $("#tweet-text").val('');
-        loadTweets();
-        $('.error-message').hide();
-      },
-      error: function (xhr, status, error) {
-        console.error("Error", error);
-      }
-    });
-  }
-
-  loadTweets();
-   
-  //Handles err msg logic and animation
+    },
+    error: function (xhr, status, error) {
+      console.error("Error", error);
+    }
+  });
+}
+//Handles successful tweet submission and passes to loadTweets. Hides err msg after sucsfl tweet submission
+function submitTweet(data) {
+  $.ajax({
+    url: "/submit",
+    type: "POST",
+    data: data,
+    success: function (res) {
+      const newTweetText = res.text;
+      //Stringify + parsing mainUser to create a dupe in memory (prevents reference bug updating old tweets)*/
+      let newTweet = JSON.parse(JSON.stringify(mainUser));
+      const now = new Date();
+      const formattedDate = now.toLocaleString();
+      newTweet.created_at = formattedDate;
+      newTweet.content.text = newTweetText;
+      timeline.unshift(newTweet);
+      $(".tweets-container").empty();
+      $("#tweet-text").val('');
+      loadTweets();
+      $('.error-message').hide();
+    },
+    error: function (xhr, status, error) {
+      console.error("Error", error);
+    }
+  });
+}
+ //Handles err msg on invalid tweets, sends to submitTweet if valid
+function submitAction() {
   $("form").submit(function (event) {
     event.preventDefault();
     const submitData = $(this).serialize();
@@ -134,13 +127,19 @@ $(document).ready(function () {
       submitTweet(submitData);
     }
   });
+}
+//Calls functions to handle inital page load and user submission flow
+$(document).ready(function () {
+  //Initally loads tweets upon page load
+  loadTweets();
+  //Calls submitAction to start logic-flow on what to do with user input upon submission
+  submitAction();
 });
 
 //Adds hovered class when hovering to change favicon color
 $(document).ready(function () {
   $(document).on('mouseenter', '.favicon i', function () {
     $(this).addClass('hovered');
-    console.log("Being hovered right now");
   }).on('mouseleave', '.favicon i', function () {
     $(this).removeClass('hovered');
   });
